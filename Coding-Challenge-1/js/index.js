@@ -3,6 +3,8 @@ var query;
 function displayResults(resJson){
     var resText = document.querySelector('.js-search-results');
 
+    resText.innerHTML = ``;
+
     resText.innerHTML +=`
         <h3>${resJson.name}</h3>
         <img src="${resJson.sprites.front_default}"/>
@@ -36,6 +38,7 @@ function fetchPokemon(){
             return res.json();
         }
         else{
+            alert("an Error has ocurred")
             throw new Error(res.statusText);
         }
     })
